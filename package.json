@@ -1,0 +1,10 @@
+{
+  "name": "blackpoint-offensive-security",
+  "version": "1.0.0",
+  "description": "Premium landing page for cybersecurity penetration testing services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
