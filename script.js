@@ -1,28 +1,10 @@
-const scene = document.getElementById("scene");
 const revealItems = document.querySelectorAll("[data-reveal]");
+const worldStage = document.getElementById("worldStage");
 const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
 const formEndpoint = window.SITE_CONFIG?.formEndpoint || "";
 const fallbackEmail = window.SITE_CONFIG?.fallbackEmail || "contact@example.com";
 const rootStyle = document.documentElement.style;
-
-if (scene) {
-  window.addEventListener("pointermove", (event) => {
-    const { innerWidth, innerHeight } = window;
-    const rotateY = ((event.clientX / innerWidth) - 0.5) * 18;
-    const rotateX = ((event.clientY / innerHeight) - 0.5) * -14;
-
-    scene.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    rootStyle.setProperty("--spotlight-x", `${event.clientX}px`);
-    rootStyle.setProperty("--spotlight-y", `${event.clientY}px`);
-  });
-
-  window.addEventListener("mouseleave", () => {
-    scene.style.transform = "rotateX(0deg) rotateY(0deg)";
-    rootStyle.setProperty("--spotlight-x", "50%");
-    rootStyle.setProperty("--spotlight-y", "22%");
-  });
-}
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -31,9 +13,26 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.18 });
+}, { threshold: 0.16 });
 
 revealItems.forEach((item) => observer.observe(item));
+
+if (worldStage) {
+  window.addEventListener("pointermove", (event) => {
+    const xRatio = (event.clientX / window.innerWidth) - 0.5;
+    const yRatio = (event.clientY / window.innerHeight) - 0.5;
+
+    rootStyle.setProperty("--spot-x", `${event.clientX}px`);
+    rootStyle.setProperty("--spot-y", `${event.clientY}px`);
+    rootStyle.setProperty("--mouse-x", `${xRatio * 12}deg`);
+    rootStyle.setProperty("--mouse-y", `${yRatio * -12}deg`);
+  });
+
+  document.addEventListener("scroll", () => {
+    const scrollRatio = Math.min(window.scrollY / 1200, 1);
+    rootStyle.setProperty("--scroll-globe", `${scrollRatio * 18}deg`);
+  }, { passive: true });
+}
 
 if (contactForm) {
   contactForm.addEventListener("submit", async (event) => {
@@ -55,12 +54,12 @@ if (contactForm) {
         ].join("\n")
       );
 
-      formStatus.textContent = "Kein Formular-Endpoint gesetzt. Es wird dein Mailprogramm geöffnet.";
+      formStatus.textContent = "Kein Endpoint gesetzt. Es wird dein Mailprogramm geoeffnet.";
       window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
       return;
     }
 
-    formStatus.textContent = "Anfrage wird sicher übertragen...";
+    formStatus.textContent = "Anfrage wird sicher uebertragen...";
 
     try {
       const response = await fetch(formEndpoint, {
@@ -77,9 +76,9 @@ if (contactForm) {
       }
 
       contactForm.reset();
-      formStatus.textContent = "Danke. Ihre Anfrage wurde erfolgreich übermittelt.";
+      formStatus.textContent = "Danke. Ihre Anfrage wurde erfolgreich uebermittelt.";
     } catch (error) {
-      formStatus.textContent = "Die Anfrage konnte gerade nicht gesendet werden. Bitte Endpoint oder Netzwerk prüfen.";
+      formStatus.textContent = "Die Anfrage konnte gerade nicht gesendet werden. Bitte Endpoint oder Netzwerk pruefen.";
     }
   });
 }
