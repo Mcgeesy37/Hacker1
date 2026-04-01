@@ -4,17 +4,23 @@ const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
 const formEndpoint = window.SITE_CONFIG?.formEndpoint || "";
 const fallbackEmail = window.SITE_CONFIG?.fallbackEmail || "contact@example.com";
+const rootStyle = document.documentElement.style;
 
 if (scene) {
   window.addEventListener("pointermove", (event) => {
     const { innerWidth, innerHeight } = window;
     const rotateY = ((event.clientX / innerWidth) - 0.5) * 18;
     const rotateX = ((event.clientY / innerHeight) - 0.5) * -14;
+
     scene.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    rootStyle.setProperty("--spotlight-x", `${event.clientX}px`);
+    rootStyle.setProperty("--spotlight-y", `${event.clientY}px`);
   });
 
   window.addEventListener("mouseleave", () => {
     scene.style.transform = "rotateX(0deg) rotateY(0deg)";
+    rootStyle.setProperty("--spotlight-x", "50%");
+    rootStyle.setProperty("--spotlight-y", "22%");
   });
 }
 
@@ -49,12 +55,12 @@ if (contactForm) {
         ].join("\n")
       );
 
-      formStatus.textContent = "Kein Formular-Endpoint gesetzt. Es wird dein Mailprogramm geoeffnet.";
+      formStatus.textContent = "Kein Formular-Endpoint gesetzt. Es wird dein Mailprogramm geöffnet.";
       window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
       return;
     }
 
-    formStatus.textContent = "Anfrage wird sicher uebertragen...";
+    formStatus.textContent = "Anfrage wird sicher übertragen...";
 
     try {
       const response = await fetch(formEndpoint, {
@@ -71,9 +77,9 @@ if (contactForm) {
       }
 
       contactForm.reset();
-      formStatus.textContent = "Danke. Ihre Anfrage wurde erfolgreich uebermittelt.";
+      formStatus.textContent = "Danke. Ihre Anfrage wurde erfolgreich übermittelt.";
     } catch (error) {
-      formStatus.textContent = "Die Anfrage konnte gerade nicht gesendet werden. Bitte Endpoint oder Netzwerk pruefen.";
+      formStatus.textContent = "Die Anfrage konnte gerade nicht gesendet werden. Bitte Endpoint oder Netzwerk prüfen.";
     }
   });
 }
