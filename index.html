@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackpoint Security | Flagship Cyber Defense</title>
+  <title>Blackpoint Security | Neural Offensive Security</title>
   <meta
     name="description"
-    content="Flagship Cybersecurity Landingpage mit holografischer 3D-Welt, vernetzten Lichtpunkten und Premium-Auftritt fuer Penetration Testing und Red Teaming."
+    content="Extreme Cybersecurity Landingpage mit tiefen 3D-Objekten, Datenstroemen und interaktiver Premium-Visualisierung fuer Pentesting und Red Teaming."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="ambient ambient-a" aria-hidden="true"></div>
-  <div class="ambient ambient-b" aria-hidden="true"></div>
-  <div class="ambient-grid" aria-hidden="true"></div>
-  <div class="ambient-noise" aria-hidden="true"></div>
-  <div class="ambient-spot" aria-hidden="true"></div>
+  <canvas id="dataFlowCanvas" class="data-flow-canvas" aria-hidden="true"></canvas>
+  <div class="page-fog page-fog-a" aria-hidden="true"></div>
+  <div class="page-fog page-fog-b" aria-hidden="true"></div>
+  <div class="page-scan" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
 
   <header class="site-header">
     <a class="brand" href="#top">
@@ -31,7 +31,7 @@
 
     <nav class="nav">
       <a href="#services">Services</a>
-      <a href="#vision">Vision</a>
+      <a href="#signal">Signal</a>
       <a href="#process">Process</a>
       <a href="#contact" class="nav-cta">Assessment anfragen</a>
     </nav>
@@ -40,132 +40,131 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy" data-reveal>
-        <p class="eyebrow">Flagship Cybersecurity · Pentesting · Red Teaming · Global Attack Surface</p>
-        <h1>Die schoenste Art, echte Sicherheit ernst zu nehmen.</h1>
+        <p class="eyebrow">Neural Pentesting · Red Teaming · Cyber Defense Systems</p>
+        <h1>Eine Cybersecurity-Seite wie aus einer anderen Liga.</h1>
         <p class="hero-text">
-          Diese Version ist bewusst extremer: eine holografische 3D-Welt, vernetzte Lichtknoten,
-          rotierende Ebenen, cineastische Glow-Architektur und eine deutlich tiefere Premium-Anmutung
-          fuer Unternehmen, die keinen Standard-Auftritt wollen.
+          Diese Version ist bewusst maximal: echte Raumtiefe, frei schwebende 3D-Objekte, globale
+          Signalachsen und Datenstroeme, die auf die Maus reagieren und sich in alle Richtungen verteilen.
+          Der Eindruck ist nicht nur modern, sondern fast wie ein eigenes Security-Produkt.
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="button button-primary">Premium Assessment anfragen</a>
-          <a href="#services" class="button button-secondary">Leistungsumfang ansehen</a>
+          <a href="#contact" class="button button-primary">Assessment anfragen</a>
+          <a href="#services" class="button button-secondary">Leistungen ansehen</a>
         </div>
 
-        <div class="hero-panels">
+        <div class="hero-matrix">
           <article>
-            <strong>Real Attack Paths</strong>
-            <span>Von Web bis Identity werden Risiken als zusammenhaengende Pfade sichtbar.</span>
+            <strong>Live Attack Surface</strong>
+            <span>Verbundene Risiken, Identitaeten, APIs und Infrastruktur in einer einzigen visuellen Sprache.</span>
           </article>
           <article>
-            <strong>Executive Ready</strong>
-            <span>Technische Tiefe fuer Teams, glasklare Botschaften fuer Management und Vorstand.</span>
+            <strong>Hacker-Atmosphaere</strong>
+            <span>Dunkel, tief, technisch und bewusst radikaler als typische Corporate-Security-Seiten.</span>
           </article>
           <article>
-            <strong>High-End Positioning</strong>
-            <span>Mehr Marke, mehr Vertrauen, mehr Wirkung als bei typischen Cybersecurity-Seiten.</span>
+            <strong>Premium fuer Firmen</strong>
+            <span>Visuell aggressiv, aber sprachlich serioes genug fuer Management und Enterprise-Kunden.</span>
           </article>
         </div>
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="world-stage" id="worldStage">
-          <div class="stage-fog"></div>
-          <div class="stage-radar"></div>
-          <div class="stage-horizon"></div>
+        <div class="void-stage" id="voidStage">
+          <div class="void-halo"></div>
+          <div class="void-grid"></div>
+          <div class="signal-plane"></div>
 
-          <div class="orbital-system">
-            <span class="orbit orbit-a"></span>
-            <span class="orbit orbit-b"></span>
-            <span class="orbit orbit-c"></span>
-            <span class="orbit orbit-d"></span>
+          <div class="world-sphere" id="worldSphere">
+            <div class="sphere-shell sphere-shell-a"></div>
+            <div class="sphere-shell sphere-shell-b"></div>
+            <div class="sphere-shell sphere-shell-c"></div>
+            <div class="sphere-core"></div>
+            <div class="sphere-glare"></div>
+
+            <span class="sphere-node n1"></span>
+            <span class="sphere-node n2"></span>
+            <span class="sphere-node n3"></span>
+            <span class="sphere-node n4"></span>
+            <span class="sphere-node n5"></span>
+            <span class="sphere-node n6"></span>
+            <span class="sphere-node n7"></span>
+            <span class="sphere-node n8"></span>
+
+            <span class="sphere-arc a1"></span>
+            <span class="sphere-arc a2"></span>
+            <span class="sphere-arc a3"></span>
+            <span class="sphere-arc a4"></span>
           </div>
 
-          <div class="world-shell shell-back"></div>
-
-          <div class="world-globe" id="worldGlobe">
-            <div class="globe-core"></div>
-            <div class="globe-shine"></div>
-            <div class="globe-grid globe-grid-lat"></div>
-            <div class="globe-grid globe-grid-long"></div>
-            <div class="globe-grid globe-grid-diag"></div>
-
-            <span class="node node-1"></span>
-            <span class="node node-2"></span>
-            <span class="node node-3"></span>
-            <span class="node node-4"></span>
-            <span class="node node-5"></span>
-            <span class="node node-6"></span>
-            <span class="node node-7"></span>
-            <span class="node node-8"></span>
-            <span class="node node-9"></span>
-            <span class="node node-10"></span>
-
-            <span class="arc arc-1"></span>
-            <span class="arc arc-2"></span>
-            <span class="arc arc-3"></span>
-            <span class="arc arc-4"></span>
-            <span class="arc arc-5"></span>
+          <div class="polyhedron cube cube-a">
+            <span class="face front"></span>
+            <span class="face back"></span>
+            <span class="face left"></span>
+            <span class="face right"></span>
+            <span class="face top"></span>
+            <span class="face bottom"></span>
           </div>
 
-          <div class="world-shell shell-front"></div>
+          <div class="polyhedron cube cube-b">
+            <span class="face front"></span>
+            <span class="face back"></span>
+            <span class="face left"></span>
+            <span class="face right"></span>
+            <span class="face top"></span>
+            <span class="face bottom"></span>
+          </div>
+
+          <div class="polyhedron prism prism-a">
+            <span class="pane p1"></span>
+            <span class="pane p2"></span>
+            <span class="pane p3"></span>
+          </div>
 
           <div class="beam beam-a"></div>
           <div class="beam beam-b"></div>
           <div class="scan-column"></div>
-          <div class="data-floor"></div>
 
-          <div class="signal-card signal-card-main">
-            <span class="card-kicker">ATTACK SURFACE</span>
-            <strong>Web, Cloud, Identity und API Exposure</strong>
-            <p>Die Seite verkauft nicht nur Services, sondern das Gefuehl echter Kontrolle ueber komplexe Systeme.</p>
+          <div class="glass-node glass-node-main">
+            <span class="kicker">NEURAL MAP</span>
+            <strong>Interaktive Datenstroeme folgen der Maus</strong>
+            <p>Beim Hover wird die Szene nicht nur bewegt, sondern im Hintergrund aktiviert.</p>
           </div>
 
-          <div class="signal-card signal-card-side">
-            <span class="card-kicker">LIVE THREAT GRAPH</span>
-            <strong>Vernetzte Lichtpunkte</strong>
-            <p>Angriffspfade wirken sichtbar, verstaendlich und hochgradig hochwertig praesentiert.</p>
+          <div class="glass-node glass-node-side">
+            <span class="kicker">3D OBJECT FIELD</span>
+            <strong>Tiefe statt flache Effekte</strong>
+            <p>Schwebende Koerper und Achsen erzeugen eine echte Raumwirkung im Hero.</p>
           </div>
 
-          <div class="signal-card signal-card-bottom">
-            <span class="card-kicker">EXECUTIVE SIGNAL</span>
-            <strong>Premium Positioning fuer anspruchsvolle Firmen</strong>
-            <p>Modern genug fuer Tech, serioes genug fuer C-Level, stark genug fuer Vertrauen.</p>
-          </div>
-
-          <div class="intel-rail">
-            <span>Web Apps</span>
-            <span>Identity</span>
-            <span>Infrastructure</span>
-            <span>Cloud</span>
-            <span>API</span>
-            <span>Red Team</span>
+          <div class="glass-node glass-node-bottom">
+            <span class="kicker">OFFENSIVE SIGNAL</span>
+            <strong>Visuell radikal. Sprachlich premium.</strong>
+            <p>Die Aesthetik ist klar Tech/Hacker, aber das Messaging bleibt enterprise-faehig.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section trust-band" data-reveal>
-      <p>Gebaut fuer Unternehmen mit kritischen Daten, APIs, Cloud-Workloads, internen Netzwerken und ernsthaften Sicherheitsanforderungen.</p>
+      <p>Entwickelt fuer Firmen mit kritischen Anwendungen, APIs, Cloud-Infrastruktur, Identitaeten und echten Angriffsrisiken.</p>
       <div class="trust-items">
-        <span>OWASP</span>
-        <span>Active Directory</span>
-        <span>AWS / Azure / GCP</span>
-        <span>APIs</span>
-        <span>Executive Reporting</span>
-        <span>Retest</span>
+        <span>Web</span>
+        <span>API</span>
+        <span>Identity</span>
+        <span>Cloud</span>
+        <span>Internal</span>
+        <span>Red Team</span>
       </div>
     </section>
 
     <section class="section services" id="services">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Services</p>
-        <h2>Offensive Security, inszeniert wie ein Produkt auf Spitzenniveau</h2>
+        <h2>Offensive Security, verkauft wie eine High-End-Zukunftsmarke</h2>
         <p>
-          Diese Seite ist absichtlich kein typischer Cybersecurity-Auftritt. Sie ist tiefer, dunkler,
-          eleganter und praesentiert Angreiferperspektive als Premium-Dienstleistung fuer Unternehmen,
-          die Wirkung sehen wollen, noch bevor sie das erste Gespraech fuehren.
+          Die gesamte Seite zielt auf den Eindruck, dass hier kein normaler Dienstleister verkauft,
+          sondern ein Team, das Komplexitaet versteht, Wirkung liefert und visuell in seiner eigenen Liga spielt.
         </p>
       </div>
 
@@ -173,54 +172,54 @@
         <article class="service-card" data-reveal>
           <span>01</span>
           <h3>Web Application Pentest</h3>
-          <p>Business Logic, Auth, Rollen, APIs, sensible Datenpfade und moderne Frontend-/Backend-Stacks.</p>
+          <p>Business Logic, Auth, Rollen, APIs, Session-Flows, Datenpfade und moderne Stacks im echten Kontext.</p>
         </article>
         <article class="service-card" data-reveal>
           <span>02</span>
           <h3>External Infrastructure</h3>
-          <p>Perimeter, Mail, VPN, DNS, Exposed Services, Zertifikate und Fehlkonfigurationen im echten Kontext.</p>
+          <p>Perimeter, DNS, VPN, Mail, Exposed Services und Fehlkonfigurationen aus Angreiferperspektive.</p>
         </article>
         <article class="service-card" data-reveal>
           <span>03</span>
-          <h3>Internal & Identity</h3>
-          <p>AD, Privilege Escalation, Trust Abuse, Lateral Movement und reale Wege zur Ausweitung von Rechten.</p>
+          <h3>Identity & Internal</h3>
+          <p>AD, Trust Abuse, Privilege Escalation, Lateral Movement und Wege zur Ausbreitung im Netzwerk.</p>
         </article>
         <article class="service-card" data-reveal>
           <span>04</span>
           <h3>Cloud & Red Teaming</h3>
-          <p>AWS, Azure, GCP, IAM, Secrets, CI/CD, Cross-Account-Risiken und mehrstufige Angriffsketten ueber Umgebungen hinweg.</p>
+          <p>AWS, Azure, IAM, Secrets, Storage, CI/CD und mehrstufige Angriffsketten ueber Umgebungen hinweg.</p>
         </article>
       </div>
     </section>
 
-    <section class="section vision" id="vision">
-      <div class="vision-panel" data-reveal>
+    <section class="section signal" id="signal">
+      <div class="signal-panel" data-reveal>
         <div>
-          <p class="eyebrow">Vision</p>
-          <h2>Eine 3D-Welt, die nicht nur gut aussieht, sondern den Gedanken Sicherheit fuehlbar macht.</h2>
+          <p class="eyebrow">Signal</p>
+          <h2>Wenn sich die Maus bewegt, antwortet die komplette Szene.</h2>
         </div>
         <p>
-          Gute Cybersecurity-Websites sagen oft dasselbe. Diese hier fuehlt sich anders an: vernetzt,
-          global, technisch und fast filmisch. Genau dadurch entsteht der Eindruck von Klasse, Reife und
-          Tiefe, den hochwertige Firmenkunden sofort merken.
+          Genau das macht die Seite besonders: Nicht nur Parallax, sondern ein lebendiges Datenfeld,
+          das sich verteilt, reagiert, verdichtet und wieder aufloest. Es wirkt wie ein digitales Nervensystem
+          statt wie eine simple Landingpage.
         </p>
       </div>
 
-      <div class="split-grid">
-        <article class="split-card" data-reveal>
+      <div class="feature-grid">
+        <article class="feature-card" data-reveal>
           <span>Depth</span>
-          <h3>Mehr Raum</h3>
-          <p>Mehrere visuelle Ebenen geben der Seite echte Tiefenwirkung statt bloeßer Effekte.</p>
+          <h3>Mehrschichtiger Raum</h3>
+          <p>Sphere, Polyeder, Beams, Scanlines und Tiefengitter sitzen auf getrennten Ebenen.</p>
         </article>
-        <article class="split-card" data-reveal>
-          <span>Motion</span>
-          <h3>Mehr Bewegung</h3>
-          <p>Die Welt reagiert auf Maus und Scrollen, ohne billig oder verspielt zu werden.</p>
+        <article class="feature-card" data-reveal>
+          <span>Flow</span>
+          <h3>Datenstroeme aus der Maus</h3>
+          <p>Partikel reagieren live auf Cursor-Naehe und verteilen sich in alle Richtungen.</p>
         </article>
-        <article class="split-card" data-reveal>
-          <span>Signal</span>
-          <h3>Mehr Vertrauen</h3>
-          <p>Die gesamte Sprache ist auf anspruchsvolle Firmen, technische Teams und Entscheider ausgerichtet.</p>
+        <article class="feature-card" data-reveal>
+          <span>Scene</span>
+          <h3>Hacker-Aesthetik</h3>
+          <p>Dunkel, technisch, filmisch und deutlich mutiger als klassische Enterprise-Sites.</p>
         </article>
       </div>
     </section>
@@ -228,25 +227,25 @@
     <section class="section process" id="process">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Process</p>
-        <h2>Vom Scope bis zum Retest klar, aggressiv und belastbar</h2>
+        <h2>Vom Scope bis zum Retest kompromisslos strukturiert</h2>
       </div>
 
       <div class="timeline">
         <article data-reveal>
           <strong>01. Scoping</strong>
-          <p>Ziele, Systeme, Zeitfenster, Ansprechpartner und Rules of Engagement werden sauber definiert.</p>
+          <p>Ziele, Systeme, Zeitfenster und Rules of Engagement werden sauber und belastbar definiert.</p>
         </article>
         <article data-reveal>
           <strong>02. Attack Modeling</strong>
-          <p>Risiken werden nicht nur gesammelt, sondern als reale Angriffslogik miteinander verbunden.</p>
+          <p>Systeme werden als verbundene Angriffsoberflaeche betrachtet, nicht nur als einzelne Targets.</p>
         </article>
         <article data-reveal>
           <strong>03. Manual Offensive Testing</strong>
-          <p>Technisch tiefe Pruefung mit Fokus auf Wirkung, Ausnutzbarkeit und Geschaeftsrelevanz.</p>
+          <p>Technisch tiefe Pruefung mit Fokus auf Ausnutzbarkeit, Relevanz und reale Auswirkungen.</p>
         </article>
         <article data-reveal>
           <strong>04. Reporting & Retest</strong>
-          <p>Executive Summary, technische Reproduktion, Priorisierung und Nachpruefung in einem Workflow.</p>
+          <p>Executive Summary, technische Details, Priorisierung und Nachtest in einem klaren Ablauf.</p>
         </article>
       </div>
     </section>
@@ -254,15 +253,15 @@
     <section class="section contact" id="contact">
       <div class="contact-copy" data-reveal>
         <p class="eyebrow">Kontakt</p>
-        <h2>Fordern Sie einen High-End Pentest fuer Ihr Unternehmen an.</h2>
+        <h2>Fragen Sie einen Premium Pentest fuer Ihr Unternehmen an.</h2>
         <p>
-          Die Seite ist weiterhin GitHub-Pages-kompatibel. Das Formular kann statisch an Formspree,
-          Getform oder einen eigenen Endpoint angeschlossen werden.
+          Die Seite bleibt statisch fuer GitHub Pages. Das Formular kann per Formspree, Getform
+          oder eigenem Endpoint angeschlossen werden.
         </p>
         <div class="contact-tags">
           <span>NDA-ready</span>
-          <span>Fast response</span>
           <span>GitHub Pages</span>
+          <span>Fast response</span>
         </div>
       </div>
 
@@ -285,7 +284,7 @@
             <option value="">Bitte auswaehlen</option>
             <option>Web Application Pentest</option>
             <option>External Infrastructure Assessment</option>
-            <option>Internal & Identity Review</option>
+            <option>Identity / Internal Review</option>
             <option>Cloud Security Assessment</option>
             <option>Red Team Exercise</option>
           </select>
@@ -305,7 +304,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Blackpoint Offensive Security · Flagship Cybersecurity fuer Unternehmen · Technisch tief, visuell kompromisslos.</p>
+    <p>Blackpoint Offensive Security · Neural Cybersecurity fuer Unternehmen · Tief, radikal, premium.</p>
   </footer>
 
   <script src="site.config.js"></script>
