@@ -18,19 +18,34 @@ const observer = new IntersectionObserver((entries) => {
 revealItems.forEach((item) => observer.observe(item));
 
 if (worldStage) {
+  let pointerX = 0;
+  let pointerY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  const animateAmbient = () => {
+    currentX += (pointerX - currentX) * 0.08;
+    currentY += (pointerY - currentY) * 0.08;
+
+    rootStyle.setProperty("--mouse-x", `${currentX * 14}deg`);
+    rootStyle.setProperty("--mouse-y", `${currentY * -14}deg`);
+
+    requestAnimationFrame(animateAmbient);
+  };
+
+  animateAmbient();
+
   window.addEventListener("pointermove", (event) => {
-    const xRatio = (event.clientX / window.innerWidth) - 0.5;
-    const yRatio = (event.clientY / window.innerHeight) - 0.5;
+    pointerX = (event.clientX / window.innerWidth) - 0.5;
+    pointerY = (event.clientY / window.innerHeight) - 0.5;
 
     rootStyle.setProperty("--spot-x", `${event.clientX}px`);
     rootStyle.setProperty("--spot-y", `${event.clientY}px`);
-    rootStyle.setProperty("--mouse-x", `${xRatio * 12}deg`);
-    rootStyle.setProperty("--mouse-y", `${yRatio * -12}deg`);
   });
 
   document.addEventListener("scroll", () => {
-    const scrollRatio = Math.min(window.scrollY / 1200, 1);
-    rootStyle.setProperty("--scroll-globe", `${scrollRatio * 18}deg`);
+    const scrollRatio = Math.min(window.scrollY / 1400, 1);
+    rootStyle.setProperty("--scroll-globe", `${scrollRatio * 22}deg`);
   }, { passive: true });
 }
 
